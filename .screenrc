@@ -1,0 +1,55 @@
+
+crlf off
+debug off
+# defbce on
+defmonitor off
+defscrollback 1000
+escape ^Aa
+fit
+hardcopy_append on
+
+hardstatus alwayslastline
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
+
+
+msgminwait 1
+msgwait 2
+pow_detach_msg "ALL YOUR SCREEN ARE BELONG TO US"
+setenv PROMPT_COMMAND 'PROMPT_COMMAND="echo -n [$(date +%H:%M)]"'
+shell -/bin/bash
+silencewait 5
+sorendition =b ry
+startup_message off
+# term screen-bce
+# term screen-w
+# termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+vbell on
+vbell_msg "Maunz?"
+vbellwait 1
+verbose off
+zombie ^D^C
+
+## internal functions
+bind ^r source "${HOME}/.screenrc"
+bind ^e escape ^Xx
+bind ^s escape ^Aa
+bind ^x lockscreen
+bind o copy
+bind p paste .
+bind . number
+bind l lastmsg
+bind w windowlist -b
+bind r resize
+bind s select
+bind = resize =
+bind + resize +5
+bind - resize -5
+bind ~ resize max
+
+## external programs
+bind _ command -c ext
+
+#screen -t irssi 0 irssi
+#screen -t slrn 1 slrn
+#screen -t vchat 1 vchat-client
+
